@@ -1,10 +1,13 @@
 import { analyzeWord } from "@/lib/ai/dictionary-agent";
 import { RootWord } from "@/lib/db/models/RootWord";
+import { connectDB } from "@/lib/db/mongoose";
 
 export async function POST(req: Request) {
   try {
     const { word } = await req.json();
     const normalized = word.trim().toLowerCase();
+
+    await connectDB();
 
     // word == any existing form
     const cachedByForm = await RootWord.findOne({
