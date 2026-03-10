@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FormEntry } from "@/lib/ai/validation";
 import AffixPill from "./AffixPill";
 import ExampleBlock from "./ExampleBlock";
-import { affixColorsDark, affixColorsLight } from "@/lib/affixColors";
+import { getAffixColor } from "@/lib/affixColors";
 import { useTheme } from "next-themes";
 
 interface FormCardProps {
@@ -15,8 +15,7 @@ interface FormCardProps {
 export default function FormCard({ form }: FormCardProps) {
   const [expanded, setExpanded] = useState(false);
   const { resolvedTheme } = useTheme();
-  const colors = resolvedTheme === "light" ? affixColorsLight : affixColorsDark;
-  const color = colors[form.affix] ?? colors["none"];
+  const color = getAffixColor(form.affix, resolvedTheme === "dark");
 
   return (
     <div

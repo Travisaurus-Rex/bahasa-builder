@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { affixColorsDark, affixColorsLight } from "@/lib/affixColors";
+import { getAffixColor } from "@/lib/affixColors";
 
 interface AffixPillProps {
   affix: string;
@@ -9,8 +9,7 @@ interface AffixPillProps {
 
 export default function AffixPill({ affix }: AffixPillProps) {
   const { resolvedTheme } = useTheme();
-  const colors = resolvedTheme === "light" ? affixColorsLight : affixColorsDark;
-  const color = colors[affix] ?? colors["none"];
+  const color = getAffixColor(affix, resolvedTheme === "dark");
 
   return (
     <span
