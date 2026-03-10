@@ -31,7 +31,10 @@ For each form, use:
 
 This separation allows consistent color-coding by affix family while displaying the correct surface form.
 
-Include ALL grammatically valid forms for this root, even less common ones. Go through every affix family listed above and include it unless it is truly ungrammatical for this specific root. Err heavily on the side of inclusion. A comprehensive breakdown is the goal.
+Include ALL grammatically valid forms that are actually used in real Indonesian. 
+Be comprehensive but accurate — only include forms that a native speaker would recognize.
+Do not generate forms by mechanically applying affix rules if the result is not a real word.
+Linguistic validity trumps completeness. If unsure whether a form exists, omit it.
 
 Return only valid JSON. No markdown formatting, no backticks, no preamble or explanation. The response must begin with { and end with }.
 
