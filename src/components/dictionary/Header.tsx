@@ -1,33 +1,28 @@
+import Link from "next/link";
 import ModeToggle from "@/components/ui/ModeToggle";
 
 export default function Header() {
   return (
-    <div
-      className="relative text-center py-12 px-4 mb-8 rounded-2xl overflow-hidden"
-      style={{ background: "var(--header-bg)" }}
+    <nav
+      className="flex items-center justify-between px-6 py-4 bg-background text-foreground"
+      style={{ borderBottom: "2px solid var(--border-strong)" }}
     >
-      <div className="absolute top-4 right-4">
-        <ModeToggle />
-      </div>
-
-      <p
-        className="text-xs font-mono uppercase tracking-[0.3em] mb-4"
-        style={{ color: "var(--header-subtitle)" }}
-      >
-        Kamus Bahasa Indonesia
-      </p>
-
-      <h1
-        className="font-serif font-bold text-5xl mb-3"
-        style={{ color: "var(--header-title)", fontFamily: "Georgia, serif" }}
+      <Link
+        href="/"
+        className="text-sm font-bold uppercase tracking-widest text-foreground"
+        style={{ fontFamily: "var(--font-mono)" }}
       >
         Bahasa Builder
-      </h1>
-
-      <p className="text-base" style={{ color: "var(--header-descriptor)" }}>
-        AI-powered Indonesian morphology - any word, any form, instant
-        breakdown.
-      </p>
-    </div>
+      </Link>
+      <div className="flex items-center gap-6">
+        <span
+          className="text-xs uppercase tracking-widest hidden md:block text-muted-foreground"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Kamus Bahasa Indonesia
+        </span>
+        <ModeToggle />
+      </div>
+    </nav>
   );
 }

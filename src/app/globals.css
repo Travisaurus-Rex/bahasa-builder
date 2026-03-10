@@ -52,7 +52,7 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: oklch(0.96 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -70,11 +70,6 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -85,36 +80,16 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* dictionary component styling light */
+  --border-strong: #000000;
   --example-bg: #00000008;
-
-  --root-card-bg: linear-gradient(135deg, #e8e0f0 0%, #f5f0ff 100%);
-  --root-card-border: #9d4edd;
-  --root-card-word: #1a0a2e;
-  --root-card-pos: #6a1fa8;
-  --root-card-meaning: #2e2e2e;
-  --root-card-etymology: #666680;
-
-  --form-card-bg: #ffffff;
-  --form-card-bg-hover: #f5f5f5;
-  --form-card-word: #1a0a2e;
-  --form-card-role: #555555;
-  --form-card-meaning: #333333;
   --form-card-note-bg: #f0f0f0;
   --form-card-note-text: #444444;
-
-  --header-bg: linear-gradient(135deg, #f5f5f5 0%, #efefef 60%, #e8e8e8 100%);
-  --header-title: #1a0a2e;
-  --header-subtitle: #6a1fa8;
-  --header-descriptor: #555555;
-  --search-btn-bg: #7c3aed;
-  --search-btn-hover: #6d28d9;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.1 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0.18 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -130,11 +105,6 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -144,30 +114,10 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  /* dictionary component styling dark */
+  --border-strong: #ffffff;
   --example-bg: #ffffff06;
-
-  --root-card-bg: linear-gradient(135deg, #1a0a2e 0%, #0d0d14 100%);
-  --root-card-border: #9d4edd;
-  --root-card-word: #ffffff;
-  --root-card-pos: #9d4edd;
-  --root-card-meaning: #d1d1d1;
-  --root-card-etymology: #666680;
-
-  --form-card-bg: #13131f;
-  --form-card-bg-hover: #1a1a2e;
-  --form-card-word: #ffffff;
-  --form-card-role: #aaaaaa;
-  --form-card-meaning: #cccccc;
   --form-card-note-bg: #1e1e30;
   --form-card-note-text: #bbbbbb;
-
-  --header-bg: linear-gradient(135deg, #1a0a2e 0%, #0d0d14 60%, #0a0a1a 100%);
-  --header-title: #ffffff;
-  --header-subtitle: #9d4edd;
-  --header-descriptor: #888888;
-  --search-btn-bg: #7c3aed;
-  --search-btn-hover: #6d28d9;
 }
 
 @layer base {

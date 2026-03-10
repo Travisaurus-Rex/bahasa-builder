@@ -12,16 +12,23 @@ export default function ExampleBlock({
   return (
     <div
       style={{
-        backgroundColor: "#ffffff06",
+        backgroundColor: "var(--example-bg)",
         borderLeft: `3px solid ${color}`,
-        borderRadius: "0 8px 8px 0",
       }}
       className="px-4 py-3"
     >
-      <p className="font-serif text-[15px] mb-1 text-gray-800 dark:text-[#E0E0E0]">
+      <p
+        className="text-[15px] mb-1 text-foreground"
+        style={{ fontFamily: "var(--font-serif)" }}
+      >
         {indo}
       </p>
-      <p className="text-[13px] text-gray-500 dark:text-[#888888]">{english}</p>
+      <p
+        className="text-[13px] text-muted-foreground"
+        style={{ fontFamily: "var(--font-mono)" }}
+      >
+        {english}
+      </p>
     </div>
   );
 }

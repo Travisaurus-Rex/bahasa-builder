@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { getAffixColor } from "@/lib/affixColors";
 
 interface AffixPillProps {
@@ -9,16 +10,21 @@ interface AffixPillProps {
 
 export default function AffixPill({ affix }: AffixPillProps) {
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
   const color = getAffixColor(affix, resolvedTheme === "dark");
 
   return (
     <span
       style={{
         backgroundColor: `${color}22`,
-        border: `1px solid ${color}45`,
+        border: `1px solid ${color}88`,
         color: color,
       }}
-      className="inline-block px-2 py-0.5 rounded-full font-mono text-xs uppercase tracking-wide"
+      className="inline-block px-2 py-0.5 font-mono text-xs uppercase tracking-wide"
     >
       {affix}
     </span>

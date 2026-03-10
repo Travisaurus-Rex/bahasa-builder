@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 export default function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -13,9 +14,22 @@ export default function ModeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="px-3 py-1 text-sm border border-white/20 rounded-full hover:border-white/40 transition-colors"
+      className="cursor-pointer px-4 py-2 text-xs font-bold uppercase tracking-widest border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors duration-100"
+      style={{ fontFamily: "var(--font-mono)" }}
     >
-      {theme === "dark" ? "Light" : "Dark"}
+      {theme === "light" && (
+        <span className="flex items-center gap-1">
+          Dark
+          <Moon width={14} />
+        </span>
+      )}
+
+      {theme === "dark" && (
+        <span className="flex items-center gap-1">
+          Light
+          <Sun width={14} />
+        </span>
+      )}
     </button>
   );
 }

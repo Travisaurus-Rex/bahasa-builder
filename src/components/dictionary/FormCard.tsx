@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FormEntry } from "@/lib/ai/validation";
 import AffixPill from "./AffixPill";
 import ExampleBlock from "./ExampleBlock";
-import { getAffixColor } from "@/lib/affixColors";
+import { affixColorsDark, affixColorsLight } from "@/lib/affixColors";
 import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 interface FormCardProps {
   form: FormEntry;
@@ -14,46 +15,52 @@ interface FormCardProps {
 
 export default function FormCard({ form }: FormCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
-  const color = getAffixColor(form.affix, resolvedTheme === "dark");
+
+  useEffect(() => setMounted(true), []);
+
+  const colors = resolvedTheme === "light" ? affixColorsLight : affixColorsDark;
+  const color = mounted
+    ? (colors[form.affix] ?? colors["none"])
+    : (affixColorsDark[form.affix] ?? affixColorsDark["none"]);
 
   return (
     <div
-      onClick={() => setExpanded(!expanded)}
-      className="rounded-xl p-4 cursor-pointer transition-colors"
+      className="bg-card cursor-pointer mb-2"
       style={{
-        backgroundColor: "var(--form-card-bg)",
-        borderLeft: `3px solid ${color}`,
+        borderLeft: `4px solid ${color}`,
       }}
+      onClick={() => setExpanded(!expanded)}
     >
-      <div className="flex items-center gap-3 mb-1">
+      <div className="flex items-center gap-3 px-5 py-4">
         <span
-          className="font-serif text-[22px]"
-          style={{
-            color: "var(--form-card-word)",
-            fontFamily: "Georgia, serif",
-          }}
+          className="text-[22px] text-foreground"
+          style={{ fontFamily: "var(--font-serif)" }}
         >
           {form.form}
         </span>
         <AffixPill affix={form.affix} />
         <span
-          className="italic text-sm"
-          style={{ color: "var(--form-card-role)" }}
+          className="italic text-sm text-muted-foreground"
+          style={{ fontFamily: "var(--font-mono)" }}
         >
           {form.role}
         </span>
         <motion.span
-          className="ml-auto text-xl"
+          className="ml-auto text-xl text-muted-foreground"
           animate={{ rotate: expanded ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          style={{ color: "var(--form-card-role)", display: "inline-block" }}
+          style={{ display: "inline-block", fontFamily: "var(--font-mono)" }}
         >
           +
         </motion.span>
       </div>
 
-      <p className="text-sm" style={{ color: "var(--form-card-meaning)" }}>
+      <p
+        className="px-5 pb-4 text-sm text-foreground"
+        style={{ fontFamily: "var(--font-mono)" }}
+      >
         {form.meaning}
       </p>
 
@@ -68,16 +75,18 @@ export default function FormCard({ form }: FormCardProps) {
             className="overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mt-4">
+            <div className="px-5 pb-5">
               {form.note && (
                 <div
-                  className="rounded-lg px-3 py-2 mb-3 text-sm"
+                  className="px-3 py-2 mb-3 text-sm text-muted-foreground"
                   style={{
+                    fontFamily: "var(--font-mono)",
+                    borderLeft: `2px solid ${color}`,
                     backgroundColor: "var(--form-card-note-bg)",
                     color: "var(--form-card-note-text)",
                   }}
                 >
-                  💡 {form.note}
+                  {form.note}
                 </div>
               )}
               <div className="flex flex-col gap-2">

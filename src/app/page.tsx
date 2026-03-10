@@ -101,7 +101,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <span
-                    className="block leading-none"
+                    className="block leading-none py-4"
                     style={{
                       fontFamily: "var(--font-serif)",
                       fontSize: "clamp(3.5rem, 10vw, 7rem)",

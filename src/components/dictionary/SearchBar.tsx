@@ -15,7 +15,7 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex" style={{ border: "2px solid var(--border-strong)" }}>
       <input
         type="text"
         value={input}
@@ -23,19 +23,17 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
         onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
         placeholder="Type any Indonesian word..."
         disabled={loading}
-        className="flex-1 px-4 py-3 rounded-xl text-base outline-none transition-colors
-          bg-white dark:bg-[#13131f]
-          border border-gray-200 dark:border-white/10
-          text-gray-800 dark:text-white
-          placeholder-gray-400 dark:placeholder-white/30
-          focus:border-purple-400 dark:focus:border-purple-500
-          disabled:opacity-50"
+        className="flex-1 px-4 py-4 text-base outline-none bg-background text-foreground placeholder:text-muted-foreground disabled:opacity-50"
+        style={{
+          fontFamily: "var(--font-mono)",
+          borderRight: "2px solid var(--border-strong)",
+        }}
       />
       <button
         onClick={handleSubmit}
         disabled={loading || !input.trim()}
-        className="px-6 py-3 rounded-xl font-medium text-sm transition-colors text-white disabled:opacity-40 disabled:cursor-not-allowed"
-        style={{ backgroundColor: "var(--search-btn-bg)" }}
+        className="px-8 py-4 text-sm font-bold uppercase tracking-widest bg-foreground text-background hover:opacity-80 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+        style={{ fontFamily: "var(--font-mono)" }}
       >
         {loading ? "Loading..." : "Search"}
       </button>

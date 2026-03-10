@@ -23,32 +23,40 @@ export default function DictionaryPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ word }),
       });
-
       if (!res.ok) throw new Error("Something went wrong");
-
       const data = await res.json();
       setResult(data);
-    } catch (err) {
-      setError("Failed to look up word. Please try again.");
+    } catch {
+      setError("Lookup failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0D0D14] transition-colors">
+    <main
+      className="min-h-screen bg-background"
+      style={{ fontFamily: "var(--font-mono)" }}
+    >
       <Header />
-      <div className="max-w-[760px] mx-auto px-4 py-8">
-        <div className="mb-8">
+
+      <div className="px-6 py-4">
+        <div className="max-w-[760px] mx-auto">
           <SearchBar onSearch={handleSearch} loading={loading} />
         </div>
+      </div>
 
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+      <div className="max-w-[760px] mx-auto px-6 py-6">
+        {error && (
+          <p className="text-sm font-mono text-red-600 mb-4 uppercase tracking-widest">
+            {error}
+          </p>
+        )}
 
         {result && (
           <div>
             <RootCard entry={result} />
-            <div className="flex flex-col gap-2 mt-2">
+            <div className="flex flex-col mt-2">
               {result.forms
                 .filter((form) => form.affix !== "none")
                 .map((form, i) => (
@@ -58,6 +66,6 @@ export default function DictionaryPage() {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }
