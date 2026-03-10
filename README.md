@@ -20,7 +20,7 @@ Type any form of a word. The Claude API identifies the root, strips the affixes,
 | Styling    | Tailwind CSS + shadcn/ui |
 | Database   | MongoDB Atlas            |
 | ODM        | Mongoose                 |
-| AI         | Anthropic Claude API     |
+| AI         | Groq AI SDK              |
 | Deployment | Vercel                   |
 
 ---
