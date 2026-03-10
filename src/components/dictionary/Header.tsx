@@ -21,11 +21,12 @@ export default function Header() {
         className="font-serif font-bold text-5xl mb-3"
         style={{ color: "var(--header-title)", fontFamily: "Georgia, serif" }}
       >
-        Indonesian Dictionary
+        Bahasa Builder
       </h1>
 
       <p className="text-base" style={{ color: "var(--header-descriptor)" }}>
-        Root words, affixes, and real example sentences
+        AI-powered Indonesian morphology - any word, any form, instant
+        breakdown.
       </p>
     </div>
   );
