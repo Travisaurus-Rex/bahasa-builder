@@ -34,10 +34,8 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
       <button
         onClick={handleSubmit}
         disabled={loading || !input.trim()}
-        className="px-6 py-3 rounded-xl font-medium text-sm transition-colors
-          bg-purple-600 hover:bg-purple-700
-          text-white
-          disabled:opacity-40 disabled:cursor-not-allowed"
+        className="px-6 py-3 rounded-xl font-medium text-sm transition-colors text-white disabled:opacity-40 disabled:cursor-not-allowed"
+        style={{ backgroundColor: "var(--search-btn-bg)" }}
       >
         {loading ? "Loading..." : "Search"}
       </button>

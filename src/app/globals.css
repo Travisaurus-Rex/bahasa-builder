@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -98,6 +98,13 @@
   --form-card-meaning: #333333;
   --form-card-note-bg: #f0f0f0;
   --form-card-note-text: #444444;
+
+  --header-bg: linear-gradient(135deg, #f5f5f5 0%, #efefef 60%, #e8e8e8 100%);
+  --header-title: #1a0a2e;
+  --header-subtitle: #6a1fa8;
+  --header-descriptor: #555555;
+  --search-btn-bg: #7c3aed;
+  --search-btn-hover: #6d28d9;
 }
 
 .dark {
@@ -150,6 +157,13 @@
   --form-card-meaning: #cccccc;
   --form-card-note-bg: #1e1e30;
   --form-card-note-text: #bbbbbb;
+
+  --header-bg: linear-gradient(135deg, #1a0a2e 0%, #0d0d14 60%, #0a0a1a 100%);
+  --header-title: #ffffff;
+  --header-subtitle: #9d4edd;
+  --header-descriptor: #888888;
+  --search-btn-bg: #7c3aed;
+  --search-btn-hover: #6d28d9;
 }
 
 @layer base {
