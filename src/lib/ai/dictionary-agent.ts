@@ -1,33 +1,29 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { systemPrompt } from "./prompt";
 import { RootWordSchema, RootWordEntry } from "./validation";
 
-const client = new Anthropic();
+const client = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
 export async function analyzeWord(word: string): Promise<RootWordEntry> {
-  const response = await client.messages.create({
-    model: "claude-opus-4-5",
-    max_tokens: 2048,
-    system: systemPrompt,
-    messages: [{ role: "user", content: word }],
+  const model = client.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    systemInstruction: systemPrompt,
   });
 
-  const text = response.content
-    .filter((block) => block.type === "text")
-    .map((block) => block.text)
-    .join("");
+  const response = await model.generateContent(word);
+  const text = response.response.text();
 
   let parsed: unknown;
   try {
     parsed = JSON.parse(text);
   } catch {
-    throw new Error(`Claude returned invalid JSON: ${text.slice(0, 200)}`);
+    throw new Error(`Gemini returned invalid JSON: ${text.slice(0, 200)}`);
   }
 
   const result = RootWordSchema.safeParse(parsed);
   if (!result.success) {
     throw new Error(
-      `Claude response failed validation: ${result.error.message}`,
+      `Gemini response failed validation: ${result.error.message}`,
     );
   }
 
