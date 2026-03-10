@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { systemPrompt } from "./prompt";
-import { RootWordEntry } from "@/types";
+import { RootWordSchema, RootWordEntry } from "./validation";
 
 const client = new Anthropic();
 
@@ -17,6 +17,19 @@ export async function analyzeWord(word: string): Promise<RootWordEntry> {
     .map((block) => block.text)
     .join("");
 
-  const parsed = JSON.parse(text);
-  return parsed as RootWordEntry;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    throw new Error(`Claude returned invalid JSON: ${text.slice(0, 200)}`);
+  }
+
+  const result = RootWordSchema.safeParse(parsed);
+  if (!result.success) {
+    throw new Error(
+      `Claude response failed validation: ${result.error.message}`,
+    );
+  }
+
+  return result.data;
 }
