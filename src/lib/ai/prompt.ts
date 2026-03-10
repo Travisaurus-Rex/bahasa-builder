@@ -31,10 +31,11 @@ For each form, use:
 
 This separation allows consistent color-coding by affix family while displaying the correct surface form.
 
-Include ALL grammatically valid forms that are actually used in real Indonesian. 
-Be comprehensive but accurate — only include forms that a native speaker would recognize.
-Do not generate forms by mechanically applying affix rules if the result is not a real word.
-Linguistic validity trumps completeness. If unsure whether a form exists, omit it.
+Be thorough. For each affix family above, explicitly consider whether it applies to this root 
+and include it if valid. Do not skip families without good reason. 
+A form should only be omitted if it is genuinely ungrammatical or does not exist in Indonesian.
+For the root "main" for example, valid forms include: bermain, memainkan, dimainkan, termain, 
+pemain, permainan, mempermaikan, semain — include all that apply for the given root.
 
 Return only valid JSON. No markdown formatting, no backticks, no preamble or explanation. The response must begin with { and end with }.
 
