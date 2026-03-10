@@ -27,7 +27,6 @@ export default function FormCard({ form }: FormCardProps) {
         borderLeft: `3px solid ${color}`,
       }}
     >
-      {/* Header */}
       <div className="flex items-center gap-3 mb-1">
         <span
           className="font-serif text-[22px]"
@@ -59,7 +58,6 @@ export default function FormCard({ form }: FormCardProps) {
         {form.meaning}
       </p>
 
-      {/* Expanded content */}
       <AnimatePresence initial={false}>
         {expanded && (
           <motion.div
