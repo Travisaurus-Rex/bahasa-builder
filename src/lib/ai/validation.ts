@@ -8,6 +8,7 @@ const ExampleSchema = z.object({
 const FormSchema = z.object({
   form: z.string(),
   affix: z.string(),
+  affixSurface: z.string(),
   role: z.string(),
   meaning: z.string(),
   note: z.string().nullable(),

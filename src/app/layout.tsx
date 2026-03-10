@@ -27,6 +27,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="google" content="notranslate" />
+        <link
+          rel="icon"
+          href="/indonesia-flag.png"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
       </head>
       <body className={`${lora.variable} ${jetbrainsMono.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>

@@ -278,7 +278,13 @@ export default function LandingPage() {
 
       <footer className="px-6 py-4 flex items-center justify-between">
         <span className="text-xs text-black/30 uppercase tracking-widest">
-          Bahasa Builder — {new Date().getFullYear()}
+          Bahasa Builder — {new Date().getFullYear()}{" "}
+          <a
+            href="https://www.flaticon.com/free-icons/indonesia-flag"
+            title="indonesia flag icons"
+          >
+            Indonesia flag icons created by farizmursyidan - Flaticon
+          </a>
         </span>
         <span className="text-xs text-black/30 uppercase tracking-widest">
           Kamus Bahasa Indonesia

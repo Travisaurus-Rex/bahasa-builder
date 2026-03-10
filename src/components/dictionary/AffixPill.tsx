@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import { getAffixColor } from "@/lib/affixColors";
 
 interface AffixPillProps {
-  affix: string;
+  affix: string; // canonical - for color lookup
+  affixSurface: string; // display - what shows in the pill
 }
 
-export default function AffixPill({ affix }: AffixPillProps) {
+export default function AffixPill({ affix, affixSurface }: AffixPillProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -26,7 +27,7 @@ export default function AffixPill({ affix }: AffixPillProps) {
       }}
       className="inline-block px-2 py-0.5 font-mono text-xs uppercase tracking-wide"
     >
-      {affix}
+      {affixSurface}
     </span>
   );
 }

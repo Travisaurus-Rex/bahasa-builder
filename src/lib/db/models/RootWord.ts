@@ -12,6 +12,7 @@ const FormSchema = new Schema(
   {
     form: { type: String, required: true },
     affix: { type: String, required: true },
+    affixSurface: { type: String, required: true },
     role: { type: String, required: true },
     meaning: { type: String, required: true },
     note: { type: String, default: null },

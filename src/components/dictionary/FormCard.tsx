@@ -40,7 +40,7 @@ export default function FormCard({ form }: FormCardProps) {
         >
           {form.form}
         </span>
-        <AffixPill affix={form.affix} />
+        <AffixPill affix={form.affix} affixSurface={form.affixSurface} />
         <span
           className="italic text-sm text-muted-foreground"
           style={{ fontFamily: "var(--font-mono)" }}

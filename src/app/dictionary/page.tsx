@@ -6,6 +6,7 @@ import SearchBar from "@/components/dictionary/SearchBar";
 import RootCard from "@/components/dictionary/RootCard";
 import FormCard from "@/components/dictionary/FormCard";
 import Header from "@/components/dictionary/Header";
+import { sortForms } from "@/lib/affixSort";
 
 export default function DictionaryPage() {
   const [result, setResult] = useState<RootWordEntry | null>(null);
@@ -57,7 +58,7 @@ export default function DictionaryPage() {
           <div>
             <RootCard entry={result} />
             <div className="flex flex-col mt-2">
-              {result.forms
+              {sortForms(result.forms)
                 .filter((form) => form.affix !== "none")
                 .map((form, i) => (
                   <FormCard key={i} form={form} />
