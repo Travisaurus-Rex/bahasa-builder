@@ -81,7 +81,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* dictionary component styling */
+  /* dictionary component styling light */
   --example-bg: #00000008;
 
   --root-card-bg: linear-gradient(135deg, #e8e0f0 0%, #f5f0ff 100%);
@@ -90,6 +90,14 @@
   --root-card-pos: #6a1fa8;
   --root-card-meaning: #2e2e2e;
   --root-card-etymology: #666680;
+
+  --form-card-bg: #ffffff;
+  --form-card-bg-hover: #f5f5f5;
+  --form-card-word: #1a0a2e;
+  --form-card-role: #555555;
+  --form-card-meaning: #333333;
+  --form-card-note-bg: #f0f0f0;
+  --form-card-note-text: #444444;
 }
 
 .dark {
@@ -125,7 +133,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  /* dictionary component styling */
+  /* dictionary component styling dark */
   --example-bg: #ffffff06;
 
   --root-card-bg: linear-gradient(135deg, #1a0a2e 0%, #0d0d14 100%);
@@ -134,6 +142,14 @@
   --root-card-pos: #9d4edd;
   --root-card-meaning: #d1d1d1;
   --root-card-etymology: #666680;
+
+  --form-card-bg: #13131f;
+  --form-card-bg-hover: #1a1a2e;
+  --form-card-word: #ffffff;
+  --form-card-role: #aaaaaa;
+  --form-card-meaning: #cccccc;
+  --form-card-note-bg: #1e1e30;
+  --form-card-note-text: #bbbbbb;
 }
 
 @layer base {
