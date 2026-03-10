@@ -2,6 +2,7 @@
 
 import { Search } from "lucide-react";
 import { useState } from "react";
+import { Spinner } from "../ui/spinner";
 
 interface SearchBarProps {
   onSearch: (word: string) => void;
@@ -37,7 +38,10 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
         style={{ fontFamily: "var(--font-mono)" }}
       >
         {loading ? (
-          "Loading..."
+          <span className="flex items-center gap-1">
+            <span className="hidden sm:inline">Searching</span>
+            <Spinner />
+          </span>
         ) : (
           <>
             <Search className="w-5 h-5 sm:hidden" />
