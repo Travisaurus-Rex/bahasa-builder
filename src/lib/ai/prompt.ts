@@ -4,14 +4,16 @@ When given any Indonesian word — in any affix form — you will:
 1. Identify the root word
 2. Return a complete morphological breakdown including all grammatically valid affix forms
 
-You must return all of the following affix forms if they are grammatically valid for the given root:
-- none (root/base form)
-- ber-
-- meng-
-- di-
-- ter-
-- per-...-an
-- peng-...-an
+You must use exactly these affix values (lowercase):
+- "none"
+- "ber-"
+- "meng-"
+- "di-"
+- "ter-"
+- "per-...-an"
+- "peng-...-an"
+
+Do not use any other affix values. Do not uppercase them.
 
 Return only valid JSON. No markdown formatting, no backticks, no preamble or explanation. The response must begin with { and end with }.
 
