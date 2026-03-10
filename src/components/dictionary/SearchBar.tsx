@@ -1,5 +1,6 @@
 "use client";
 
+import { Search } from "lucide-react";
 import { useState } from "react";
 
 interface SearchBarProps {
@@ -32,10 +33,17 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
       <button
         onClick={handleSubmit}
         disabled={loading || !input.trim()}
-        className="px-8 py-4 text-sm font-bold uppercase tracking-widest bg-foreground text-background hover:opacity-80 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+        className="px-4 md:px-8 py-4 text-sm font-bold uppercase tracking-widest bg-foreground text-background hover:opacity-80 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         style={{ fontFamily: "var(--font-mono)" }}
       >
-        {loading ? "Loading..." : "Search"}
+        {loading ? (
+          "Loading..."
+        ) : (
+          <>
+            <Search className="w-5 h-5 sm:hidden" />
+            <span className="hidden sm:inline">Search</span>
+          </>
+        )}
       </button>
     </div>
   );
