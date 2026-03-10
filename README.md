@@ -16,7 +16,7 @@ Type any form of a word. The Claude API identifies the root, strips the affixes,
 
 | Layer      | Technology               |
 | ---------- | ------------------------ |
-| Frontend   | Next.js 15 (App Router)  |
+| Frontend   | Next.js 16 (App Router)  |
 | Styling    | Tailwind CSS + shadcn/ui |
 | Database   | MongoDB Atlas            |
 | ODM        | Mongoose                 |
