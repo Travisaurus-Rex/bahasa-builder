@@ -22,4 +22,6 @@ export const RootWordSchema = z.object({
   forms: z.array(FormSchema).min(1),
 });
 
+export type FormEntry = z.infer<typeof FormSchema>;
+export type ExampleEntry = z.infer<typeof ExampleSchema>;
 export type RootWordEntry = z.infer<typeof RootWordSchema>;
