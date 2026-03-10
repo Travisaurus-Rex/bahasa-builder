@@ -49,9 +49,11 @@ export default function DictionaryPage() {
           <div>
             <RootCard entry={result} />
             <div className="flex flex-col gap-2 mt-2">
-              {result.forms.map((form, i) => (
-                <FormCard key={i} form={form} />
-              ))}
+              {result.forms
+                .filter((form) => form.affix !== "none")
+                .map((form, i) => (
+                  <FormCard key={i} form={form} />
+                ))}
             </div>
           </div>
         )}
