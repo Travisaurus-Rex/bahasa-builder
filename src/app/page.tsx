@@ -3,6 +3,7 @@
 import AffixPill from "@/components/dictionary/AffixPill";
 import FormCard from "@/components/dictionary/FormCard";
 import RootCard from "@/components/dictionary/RootCard";
+import SearchBar from "@/components/dictionary/SearchBar";
 import ModeToggle from "@/components/ui/ModeToggle";
 import { useEffect, useState } from "react";
 
@@ -42,6 +43,9 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-[#0D0D14] p-8">
       <div className="mb-8">
         <ModeToggle />
+      </div>
+      <div className="mt-8 max-w-2xl">
+        <SearchBar onSearch={(word) => console.log(word)} loading={false} />
       </div>
       <div className="mt-8 max-w-2xl">
         <RootCard entry={mockEntry} />
