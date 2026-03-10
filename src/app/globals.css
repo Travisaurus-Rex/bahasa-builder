@@ -81,7 +81,15 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
+  /* dictionary component styling */
   --example-bg: #00000008;
+
+  --root-card-bg: linear-gradient(135deg, #e8e0f0 0%, #f5f0ff 100%);
+  --root-card-border: #9d4edd;
+  --root-card-word: #1a0a2e;
+  --root-card-pos: #6a1fa8;
+  --root-card-meaning: #2e2e2e;
+  --root-card-etymology: #666680;
 }
 
 .dark {
@@ -117,7 +125,15 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
+  /* dictionary component styling */
   --example-bg: #ffffff06;
+
+  --root-card-bg: linear-gradient(135deg, #1a0a2e 0%, #0d0d14 100%);
+  --root-card-border: #9d4edd;
+  --root-card-word: #ffffff;
+  --root-card-pos: #9d4edd;
+  --root-card-meaning: #d1d1d1;
+  --root-card-etymology: #666680;
 }
 
 @layer base {
