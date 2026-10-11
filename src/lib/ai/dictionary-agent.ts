@@ -6,9 +6,13 @@ const client = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
+// Read the model name from .env.local. If AI_MODEL is missing, fall back to the current default.
+const MODEL = process.env.AI_MODEL ?? "openai/gpt-oss-120b";
+
 export async function analyzeWord(word: string): Promise<RootWordEntry> {
   const response = await client.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: MODEL,
+    temperature: 0.2,
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: word },
