@@ -3,10 +3,8 @@
 import { useState } from "react";
 import { RootWordEntry } from "@/lib/ai/validation";
 import SearchBar from "@/components/dictionary/SearchBar";
-import RootCard from "@/components/dictionary/RootCard";
-import FormCard from "@/components/dictionary/FormCard";
 import Header from "@/components/dictionary/Header";
-import { sortForms } from "@/lib/affixSort";
+import ResultView from "./ResultView";
 
 export default function DictionaryPage() {
   const [result, setResult] = useState<RootWordEntry | null>(null);
@@ -54,18 +52,7 @@ export default function DictionaryPage() {
           </p>
         )}
 
-        {result && (
-          <div>
-            <RootCard entry={result} />
-            <div className="flex flex-col mt-2">
-              {sortForms(result.forms)
-                .filter((form) => form.affix !== "none")
-                .map((form, i) => (
-                  <FormCard key={i} form={form} />
-                ))}
-            </div>
-          </div>
-        )}
+        {result && <ResultView entry={result} />}
       </div>
     </main>
   );
